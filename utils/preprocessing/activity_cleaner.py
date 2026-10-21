@@ -27,22 +27,21 @@ ACTIVITY_KEYWORDS = {
         "net"
     },
 
-    "Maritime Disaster": {
-        "sea disaster", "air disaster",
-        "shipwreck", "sunk",
-        "aircraft", "went down",
-        "clung", "wreck", "crash"
-        "sank", "overboard", "capsized",
-        "adrift", "fell"
-    },
-
     "Boating": {
-        "boat", "kayak",
-        "canoe", "canoeing",
-        "sailing", "sculling",
-        "rowing", "yacht",
-        "dinghy", "ship",
-        "skiing", "jet ski"
+        "boat",
+        "boating",
+        "kayak",
+        "canoe",
+        "sailing",
+        "sculling",
+        "rowing",
+        "yacht",
+        "dinghy",
+        "jet ski",
+        "water-skiing",
+        "paddleski",
+        "on board",
+        "aboard"
     },
 
     "Fishing": {
