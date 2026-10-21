@@ -1,6 +1,6 @@
 import pandas as pd
 
-ACCEPTABLE_TYPES = {"Provoked", "Unprovoked", "Boating", "Seadisaster", "Questionable", "Invalid"}
+ACCEPTABLE_TYPES = {"Provoked", "Unprovoked", "Boating", "Sea Disaster", "Questionable", "Invalid"}
 
 
 def normalize_txt(txt: str) -> str:
@@ -13,8 +13,7 @@ def normalize_txt(txt: str) -> str:
     Returns:
         str: The normalized string.
     """
-    txt = txt.capitalize()
-    txt = txt.replace(" ", "")
+    txt = txt.title()
     
     if "Boat" in txt:
         txt = "Boating"
