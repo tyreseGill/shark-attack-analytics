@@ -191,7 +191,7 @@ def categorize_species(species_name: str) -> str:
         if any(name in species_name for name in names):
             return species
 
-    if species_name != "" and species_name !="questionable":
-        print(f"Encountered unexpected string: \"{species_name}\"")
+    # if species_name != "" and species_name !="questionable":
+    #     print(f"Encountered unexpected string: \"{species_name}\"")
     
     return None

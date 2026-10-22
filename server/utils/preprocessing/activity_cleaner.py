@@ -128,7 +128,8 @@ def categorize_activity(activity: str) -> str:
 
             return category
             
-    if activity != "":
-        print(f"Encountered unexpected string: \"{activity}\"")
+    # if activity != "":
+        # print(f"Encountered unexpected string: \"{activity}\"")
+
     
     return "Other"

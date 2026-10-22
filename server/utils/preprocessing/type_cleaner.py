@@ -40,7 +40,7 @@ def categorize_type(txt: str) -> str:
 
     if txt in ACCEPTABLE_TYPES:
         return txt
-    elif txt != "":
-        print(f"Encountered unexpected string: \"{txt}\"")
+    # elif txt != "":
+    #     print(f"Encountered unexpected string: \"{txt}\"")
     
     return None

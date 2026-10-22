@@ -37,7 +37,7 @@ def categorize_fatality(txt: str) -> str:
 
     if txt == "Y" or txt == "N":
         return txt
-    elif txt != "":
-        print(f"Encountered unexpected string: \"{txt}\"")
+    # elif txt != "":
+    #     print(f"Encountered unexpected string: \"{txt}\"")
     
     return None

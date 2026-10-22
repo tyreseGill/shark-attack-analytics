@@ -239,6 +239,7 @@ def categorize_time(time_txt: str) -> str:
 
     if category:
         return category
-    else:
-        print(f"Encountered improper time string: \"{time_txt}\".")
-        return None
+    # else:
+    #     print(f"Encountered improper time string: \"{time_txt}\".")
+    
+    return None

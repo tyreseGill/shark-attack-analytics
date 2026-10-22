@@ -122,8 +122,7 @@ def categorize_age(input_txt: str | int) -> int:
     if type(input_txt) is int:
         return input_txt
 
-    if input_txt.replace(" ", "") != "":
-        print(f"Encountered unexpected string: \"{input_txt}\"")
-        # return input_txt
+    # if input_txt.replace(" ", "") != "":
+    #     print(f"Encountered unexpected string: \"{input_txt}\"")
 
     return None
