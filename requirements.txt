@@ -1,3 +1,4 @@
 pandas
 ipykernel
 pycountry
+setuptools>=83.0.0
