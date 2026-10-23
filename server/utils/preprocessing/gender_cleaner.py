@@ -36,7 +36,5 @@ def categorize_gender(txt: str) -> str:
 
     if txt == "M" or txt == "F":
         return txt
-    # elif txt != "":
-    #     print(f"Encountered unexpected string: \"{txt}\"")
     
-    return None
+    return "Unknown"

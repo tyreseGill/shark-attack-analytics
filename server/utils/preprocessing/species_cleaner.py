@@ -190,8 +190,5 @@ def categorize_species(species_name: str) -> str:
     for species, names in RECOGNIZED_SHARK_SPECIES.items():
         if any(name in species_name for name in names):
             return species
-
-    # if species_name != "" and species_name !="questionable":
-    #     print(f"Encountered unexpected string: \"{species_name}\"")
     
-    return None
+    return "Unknown"

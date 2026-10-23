@@ -13,7 +13,6 @@ def normalize_txt(txt: str) -> str:
     """
     txt = txt.upper()
     txt = txt.replace(" ", "")
-    txt = txt.replace("UNKNOWN", "")
     txt = txt.replace("M", "N")
     return txt
 
@@ -37,7 +36,5 @@ def categorize_fatality(txt: str) -> str:
 
     if txt == "Y" or txt == "N":
         return txt
-    # elif txt != "":
-    #     print(f"Encountered unexpected string: \"{txt}\"")
-    
-    return None
+
+    return "Unknown"
