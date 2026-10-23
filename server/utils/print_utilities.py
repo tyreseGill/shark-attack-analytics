@@ -23,16 +23,38 @@ def calc_one_percent_of_records(data_frame: pd.DataFrame) -> float:
     return ONE_PERCENT_OF_RECS
 
 
-def print_num_empty_recs(data_frame: pd.DataFrame, column_name: str):
-    NUM_RECORDS = 6303
-    num_empty_records = NUM_RECORDS - data_frame[column_name].count()
+def get_color(data_frame: pd.DataFrame, num_invalid_records: int) -> str:
+    """
+    Determines the color to use for printing based on the number of invalid records.
 
+    Args:
+        data_frame (pd.DataFrame): The DataFrame to analyze.
+        num_invalid_records (int): The number of invalid records in the DataFrame.
+    
+    Returns:
+        str: The color code to use for printing (RED, YELLOW, or GREEN).
+    """
     color = RED  # default
 
-    if num_empty_records == 0:
+    if num_invalid_records == 0:
         color = GREEN
-    elif num_empty_records <= calc_one_percent_of_records(data_frame):
+    elif num_invalid_records <= calc_one_percent_of_records(data_frame):
         color = YELLOW
+
+    return color
+
+
+def print_num_empty_recs(data_frame: pd.DataFrame, column_name: str):
+    """
+    Prints the number of empty records in a given column of a DataFrame.
+
+    Args:
+        data_frame (pd.DataFrame): The DataFrame to analyze.
+        column_name (str): The name of the column to check.
+    """
+    NUM_RECORDS = 6303
+    num_empty_records = NUM_RECORDS - data_frame[column_name].count()
+    color = get_color(data_frame, num_empty_records)
     
     print(f"Encountered {color}{num_empty_records}{RESET} empty input value(s).")
 
@@ -52,11 +74,6 @@ def print_num_expected_strings(data_frame: pd.DataFrame, column_name: str, value
         data_frame[column_name] == value_to_count
     ).sum()
 
-    color = RED  # default
-
-    if num_unexpected_strs == 0:
-        color = GREEN
-    elif num_unexpected_strs <= calc_one_percent_of_records(data_frame):
-        color = YELLOW
+    color = get_color(data_frame, num_unexpected_strs)
 
     print(f"Encountered {color}{num_unexpected_strs}{RESET} unexpected input values.")
