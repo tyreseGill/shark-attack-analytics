@@ -1,6 +1,6 @@
 import pandas as pd
 
-ACCEPTABLE_TYPES = {"Provoked", "Unprovoked", "Boating", "Sea Disaster", "Questionable", "Invalid"}
+ACCEPTABLE_TYPES = {"Provoked", "Unprovoked", "Boating", "Sea Disaster", "Invalid"}
 
 
 def normalize_txt(txt: str) -> str:
@@ -41,4 +41,4 @@ def categorize_type(txt: str) -> str:
     if txt in ACCEPTABLE_TYPES:
         return txt
     
-    return "Unknown"
+    return "Questionable"
