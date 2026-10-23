@@ -23,6 +23,20 @@ def calc_one_percent_of_records(data_frame: pd.DataFrame) -> float:
     return ONE_PERCENT_OF_RECS
 
 
+def print_num_empty_recs(data_frame: pd.DataFrame, column_name: str):
+    NUM_RECORDS = 6303
+    num_empty_records = NUM_RECORDS - data_frame[column_name].count()
+
+    color = RED  # default
+
+    if num_empty_records == 0:
+        color = GREEN
+    elif num_empty_records <= calc_one_percent_of_records(data_frame):
+        color = YELLOW
+    
+    print(f"Encountered {color}{num_empty_records}{RESET} empty input value(s).")
+
+
 def print_num_expected_strings(data_frame: pd.DataFrame, column_name: str, value_to_count: str):
     """
     Prints the number of unexpected input values in a given column of a DataFrame.
