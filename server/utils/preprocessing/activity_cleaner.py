@@ -1,11 +1,10 @@
 import pandas as pd
 
-
 ACTIVITY_KEYWORDS = {
     "Interacting with Sharks": {
         "feeding", "petting",
         "spearing", "hunting",
-        "petting", "tagging",
+        "tagging",
         "teasing", "grab",
         "pull", "killing",
         "picking", "rescue",
@@ -22,7 +21,7 @@ ACTIVITY_KEYWORDS = {
         "investigating", "gaffing",
         "hunt", "examining",
         "feeling", "harpooned",
-        "restraining", "photographing",
+        "photographing",
         "hoisted", "slapped",
         "net"
     },
@@ -127,9 +126,6 @@ def categorize_activity(activity: str) -> str:
                     continue
 
             return category
-            
-    # if activity != "":
-        # print(f"Encountered unexpected string: \"{activity}\"")
 
     
     return "Other"

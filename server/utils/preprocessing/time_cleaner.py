@@ -1,10 +1,11 @@
-import pandas as pd
 import re
+
+import pandas as pd
 
 # Keywords synonymous with time of day
 MORNING_CUES = {"morning", "am", "a.m.", "daybreak", "dawn", "sunrise", "sunup"}
 AFTERNOON_CUES = {"afternoon", "lunch", "midday", "noon", "p.m.", "pm", "daytime"}
-EVENING_CUES = {"evening", "sundown", "sunset", "dusk", "evening", "twilight", "nightfall"}
+EVENING_CUES = {"evening", "sundown", "sunset", "dusk", "twilight", "nightfall"}
 NIGHT_CUES = {"night", "dark"}
 
 TIME_FORMAT = re.compile(r"\d{1,2}[h]?\d{2}")
