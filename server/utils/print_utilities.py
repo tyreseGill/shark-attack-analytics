@@ -56,7 +56,7 @@ def print_num_empty_recs(data_frame: pd.DataFrame, column_name: str):
     num_empty_records = NUM_RECORDS - data_frame[column_name].count()
     color = get_color(data_frame, num_empty_records)
     
-    print(f"Encountered {color}{num_empty_records}{RESET} empty input value(s).")
+    print(f"Encountered {color}{num_empty_records}{RESET} null value(s).")
 
 
 def print_num_expected_strings(data_frame: pd.DataFrame, column_name: str, value_to_count: str):
@@ -76,4 +76,4 @@ def print_num_expected_strings(data_frame: pd.DataFrame, column_name: str, value
 
     color = get_color(data_frame, num_unexpected_strs)
 
-    print(f"Encountered {color}{num_unexpected_strs}{RESET} unexpected input values.")
+    print(f"Encountered {color}{num_unexpected_strs}{RESET} unexpected input value(s).")
