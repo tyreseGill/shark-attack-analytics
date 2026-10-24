@@ -6,10 +6,10 @@ RECOGNIZED_SHARK_SPECIES = {
         "white shark",
     },
     "Tiger Shark": {
-        "tiger shark"
+        "tiger"
     },
     "Bull Shark": {
-        "bull shark",
+        "bull",
         "zambesi",
         "zambezi"
     },
@@ -18,7 +18,7 @@ RECOGNIZED_SHARK_SPECIES = {
     },
     "Whitetip Reef Shark": {
         "whitetip reef",
-        "whtietip reef"
+        "whtietip reef",
         "white-tipped"
     },
     "Sandbar Shark": {
@@ -74,12 +74,6 @@ RECOGNIZED_SHARK_SPECIES = {
     "Port Jackson Shark": {
         "port jackson"
     },
-    # "Great Hammerhead Shark": {
-    #     "great hammerhead"
-    # },
-    # "Scalloped Hammerhead Shark": {
-    #     "scalloped hammerhead"
-    # },
     "Hammerhead Shark": {
         "hammerhead"
     },
@@ -101,7 +95,7 @@ RECOGNIZED_SHARK_SPECIES = {
         "porbeagle"
     },
     "Spinner Shark": {
-        "spinner shark"
+        "spinner"
     },
     "Copper Shark": {
         "copper shark",
@@ -111,10 +105,10 @@ RECOGNIZED_SHARK_SPECIES = {
         "whale shark"
     },
     "Basking Shark": {
-        "basking shark"
+        "basking"
     },
     "Galapagos Shark": {
-        "galapagos shark"
+        "galapagos"
     },
     "Blue Shark": {
         "blue shark"
@@ -141,16 +135,15 @@ RECOGNIZED_SHARK_SPECIES = {
     "Wobbegong Shark": {
         "wobbegong"
     },
-    "Spiny Dogfish": {
-        "dog shark",
-        "dogfish",
-        "hound shark"
+    "Dogfish": {
+        "dog",
+        "hound"
     },
     "Thresher Shark": {
         "thresher"
     },
     "Cookiecutter Shark": {
-        "cookiecutter shark"
+        "cookiecutter"
     }
 }
 

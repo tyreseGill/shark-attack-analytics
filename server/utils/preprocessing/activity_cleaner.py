@@ -8,14 +8,14 @@ ACTIVITY_KEYWORDS = {
         "teasing", "grab",
         "pull", "killing",
         "picking", "rescue",
-        "removing", "reviving"
+        "removing", "reviving",
         "shooting", "watching",
         "harassing", "dragging",
         "restraining", "holding",
         "stuffing", "hauling",
         "cutting", "finning",
         "catching", "helping",
-        "attempting", "attacked shark"
+        "attempting", "attacked shark",
         "measuring", "chumming",
         "observing", "filming",
         "investigating", "gaffing",
