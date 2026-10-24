@@ -87,9 +87,6 @@ SERVER_PORT=3000
 DATABASE_CONNECTION_STRING=postgres://user:12345@localhost:5432/db
 ```
 
-> [!IMPORTANT]
-> - `DATABASE_CONNECTION_STRING` allows the app to connect to a PostgreSQL database.
-
 <!-- ### Database Setup
 1. Open the PostgreSQL shell by running `psql`.
 2. Create a database with `CREATE DATABASE database_name;`.
