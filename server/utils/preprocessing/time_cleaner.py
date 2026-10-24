@@ -23,13 +23,10 @@ def extract_hour(time_txt: str) -> int:
     """
     time_txt = get_time_format(time_txt)
     
-    try:
-        if "h" in time_txt:
-            hour, _ = time_txt.split("h")
-        else:
-            hour = time_txt[:2]
-    except Exception as e:
-        print(f"Exception: {e} on {time_txt}")
+    if "h" in time_txt:
+        hour, _ = time_txt.split("h")
+    else:
+        hour = time_txt[:2]
 
     try:
         hour = int(hour)
