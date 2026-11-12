@@ -5,3 +5,4 @@ setuptools>=83.0.0
 python-dotenv
 sqlalchemy
 psycopg2-binary
+pytest
