@@ -70,7 +70,7 @@ ACTIVITY_KEYWORDS = {
     },
 
     "Swimming": {
-        "swimming", "bathing", "bather",
+        "swim", "bathing", "bather",
     },
 
     "Snorkeling": {
