@@ -8,26 +8,27 @@ def load_data():
     """
     Loads the processed data to the database.
     """
-    load_dotenv()
+    try:
+        load_dotenv()
 
-    DATABASE_CONNECTION_STR = os.getenv("DATABASE_CONNECTION_STRING")
+        DATABASE_CONNECTION_STR = os.getenv("DATABASE_CONNECTION_STRING")
 
-    data_frame = pd.read_csv(
-        "server/data/processed/processed_attacks.csv"
-    )
+        data_frame = pd.read_csv(
+            "server/data/processed/processed_attacks.csv"
+        )
 
-    engine = create_engine(
-        DATABASE_CONNECTION_STR
-    )
+        engine = create_engine(
+            DATABASE_CONNECTION_STR
+        )
 
-    data_frame.to_sql(
-        "shark_attacks",  # table name
-        engine,
-        if_exists="replace",
-        index=False
-    )
-
+        data_frame.to_sql(
+            "shark_attacks",  # table name
+            engine,
+            if_exists="replace",
+            index=False
+        )
+    finally:
+        engine.dispose()
 
 if __name__ == "__main__":
     load_data()
-    
