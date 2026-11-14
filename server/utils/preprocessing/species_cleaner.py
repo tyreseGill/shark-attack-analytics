@@ -26,7 +26,7 @@ RECOGNIZED_SHARK_SPECIES = {
     },
     "Sand Tiger Shark": {
         "sand tiger",
-        "grey nurse shark",
+        "grey nurse",
         "raggedtooth"
     },
     "Sand Shark": {
