@@ -1,6 +1,6 @@
 from server.utils.preprocessing import age_cleaner
 
-def test_null():
+def test_empty_str():
     assert age_cleaner.categorize_age("") == None
     
 def test_invalid_input():

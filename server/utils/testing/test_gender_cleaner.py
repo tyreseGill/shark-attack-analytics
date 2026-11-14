@@ -1,6 +1,6 @@
 from server.utils.preprocessing import gender_cleaner
 
-def test_null():
+def test_empty_str():
     assert gender_cleaner.categorize_gender("") == "Unknown"
     
 def test_invalid_input():

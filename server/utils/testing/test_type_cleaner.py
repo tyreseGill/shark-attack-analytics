@@ -3,7 +3,7 @@ ACCEPTABLE_TYPES = {"Provoked", "Unprovoked", "Boating", "Sea Disaster", "Invali
 
 from server.utils.preprocessing import type_cleaner
 
-def test_null():
+def test_empty_str():
     assert type_cleaner.categorize_type("") == "Questionable"
     
 def test_invalid_input():

@@ -1,6 +1,6 @@
 from server.utils.preprocessing import activity_cleaner
 
-def test_null():
+def test_empty_str():
     assert activity_cleaner.categorize_activity("") == "Unknown"
     
 def test_gibberish_input():

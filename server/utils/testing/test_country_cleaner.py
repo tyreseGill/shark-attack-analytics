@@ -1,6 +1,6 @@
 from server.utils.preprocessing import country_cleaner
 
-def test_null():
+def test_empty_str():
     assert country_cleaner.categorize_country("") == "Unknown"
 
 def test_usa_1():

@@ -1,6 +1,6 @@
 from server.utils.preprocessing import fatality_cleaner
 
-def test_null():
+def test_empty_str():
     assert fatality_cleaner.categorize_fatality("") == "Unknown"
     
 def test_invalid_input():

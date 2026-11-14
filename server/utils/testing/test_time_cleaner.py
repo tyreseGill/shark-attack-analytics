@@ -1,6 +1,6 @@
 from server.utils.preprocessing import time_cleaner
 
-def test_null():
+def test_empty_str():
     assert time_cleaner.categorize_time("") == None
     
 def test_invalid_input_1():
