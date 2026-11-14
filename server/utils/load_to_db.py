@@ -3,21 +3,31 @@ from sqlalchemy import create_engine
 from dotenv import load_dotenv
 import os
 
-load_dotenv()
 
-DATABASE_CONNECTION_STR = os.getenv("DATABASE_CONNECTION_STRING")
+def load_data():
+    """
+    Loads the processed data to the database.
+    """
+    load_dotenv()
 
-data_frame = pd.read_csv(
-    "server/data/processed/processed_attacks.csv"
-)
+    DATABASE_CONNECTION_STR = os.getenv("DATABASE_CONNECTION_STRING")
 
-engine = create_engine(
-    DATABASE_CONNECTION_STR
-)
+    data_frame = pd.read_csv(
+        "server/data/processed/processed_attacks.csv"
+    )
 
-data_frame.to_sql(
-    "shark_attacks",  # table name
-    engine,
-    if_exists="replace",
-    index=False
-)
+    engine = create_engine(
+        DATABASE_CONNECTION_STR
+    )
+
+    data_frame.to_sql(
+        "shark_attacks",  # table name
+        engine,
+        if_exists="replace",
+        index=False
+    )
+
+
+if __name__ == "__main__":
+    load_data()
+    
