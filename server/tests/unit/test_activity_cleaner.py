@@ -1,4 +1,4 @@
-from server.utils.preprocessing import activity_cleaner
+from server.preprocessing import activity_cleaner
 
 def test_empty_str():
     assert activity_cleaner.categorize_activity("") == "Unknown"

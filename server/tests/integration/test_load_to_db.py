@@ -21,7 +21,7 @@ def test_load_to_db():
     DATABASE_CONNECTION_STR = os.getenv("DATABASE_CONNECTION_STRING")
 
     result = subprocess.run(
-        [sys.executable, "-m", "server.utils.load_to_db"],
+        [sys.executable, "-m", "server.pipelines.load_to_db"],
         capture_output=True,
         text=True
     )

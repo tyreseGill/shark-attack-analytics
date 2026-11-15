@@ -1,4 +1,4 @@
-from server.utils.preprocessing import time_cleaner
+from server.preprocessing import time_cleaner
 
 def test_empty_str():
     assert time_cleaner.categorize_time("") == None

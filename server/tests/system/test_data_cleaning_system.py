@@ -5,7 +5,7 @@ import subprocess
 def test_data_cleaning_system():
     # Run data cleaner application
     result = subprocess.run(
-        ["python", "-m", "server.utils.data_cleaner"],
+        ["python", "-m", "server.pipelines.data_cleaner"],
         capture_output=True,
         text=True
     )

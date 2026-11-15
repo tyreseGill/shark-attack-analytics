@@ -1,4 +1,4 @@
-from server.utils.preprocessing import age_cleaner
+from server.preprocessing import age_cleaner
 
 def test_empty_str():
     assert age_cleaner.categorize_age("") == None

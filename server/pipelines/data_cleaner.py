@@ -1,12 +1,12 @@
 from server.utils.data_frame_utilities import get_data_frame
-from server.utils.preprocessing.type_cleaner import categorize_type
-from server.utils.preprocessing.country_cleaner import categorize_country
-from server.utils.preprocessing.activity_cleaner import categorize_activity
-from server.utils.preprocessing.gender_cleaner import categorize_gender
-from server.utils.preprocessing.age_cleaner import categorize_age
-from server.utils.preprocessing.fatality_cleaner import categorize_fatality
-from server.utils.preprocessing.time_cleaner import categorize_time
-from server.utils.preprocessing.species_cleaner import categorize_species
+from server.preprocessing.type_cleaner import categorize_type
+from server.preprocessing.country_cleaner import categorize_country
+from server.preprocessing.activity_cleaner import categorize_activity
+from server.preprocessing.gender_cleaner import categorize_gender
+from server.preprocessing.age_cleaner import categorize_age
+from server.preprocessing.fatality_cleaner import categorize_fatality
+from server.preprocessing.time_cleaner import categorize_time
+from server.preprocessing.species_cleaner import categorize_species
 import pandas as pd
 
 

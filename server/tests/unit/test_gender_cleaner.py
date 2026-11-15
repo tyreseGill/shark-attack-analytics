@@ -1,4 +1,4 @@
-from server.utils.preprocessing import gender_cleaner
+from server.preprocessing import gender_cleaner
 
 def test_empty_str():
     assert gender_cleaner.categorize_gender("") == "Unknown"

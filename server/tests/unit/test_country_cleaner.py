@@ -1,4 +1,4 @@
-from server.utils.preprocessing import country_cleaner
+from server.preprocessing import country_cleaner
 
 def test_empty_str():
     assert country_cleaner.categorize_country("") == "Unknown"

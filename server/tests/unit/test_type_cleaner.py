@@ -1,7 +1,5 @@
+from server.preprocessing import type_cleaner
 
-ACCEPTABLE_TYPES = {"Provoked", "Unprovoked", "Boating", "Sea Disaster", "Invalid"}
-
-from server.utils.preprocessing import type_cleaner
 
 def test_empty_str():
     assert type_cleaner.categorize_type("") == "Questionable"

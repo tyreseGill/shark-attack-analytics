@@ -1,4 +1,4 @@
-from server.utils.preprocessing import species_cleaner
+from server.preprocessing import species_cleaner
 
 def test_empty_str():
     assert species_cleaner.categorize_species("") == "Unknown"

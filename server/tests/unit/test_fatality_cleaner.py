@@ -1,4 +1,4 @@
-from server.utils.preprocessing import fatality_cleaner
+from server.preprocessing import fatality_cleaner
 
 def test_empty_str():
     assert fatality_cleaner.categorize_fatality("") == "Unknown"
