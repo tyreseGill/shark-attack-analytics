@@ -14,7 +14,7 @@ def load_data():
         DATABASE_CONNECTION_STR = os.getenv("DATABASE_CONNECTION_STRING")
 
         data_frame = pd.read_csv(
-            "server/data/processed/processed_attacks.csv"
+            "server/data/processed/attacks.csv"
         )
 
         engine = create_engine(

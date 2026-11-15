@@ -38,7 +38,7 @@ def test_load_to_db():
         assert inspect(engine).has_table("shark_attacks")
 
         expected_df = pd.read_csv(
-            "server/data/processed/processed_attacks.csv"
+            "server/data/processed/attacks.csv"
         )
 
         # Verify database records

@@ -1,6 +1,7 @@
 import pandas as pd
 import subprocess
 
+
 def test_data_cleaning_system():
     # Run data cleaner application
     result = subprocess.run(
@@ -13,7 +14,7 @@ def test_data_cleaning_system():
     assert result.returncode == 0
 
     # Load generated CSV file
-    df = pd.read_csv("server/data/processed/processed_attacks.csv")
+    df = pd.read_csv("server/data/processed/attacks.csv")
 
     # Verify expected columns exist
     assert "Date" in df.columns

@@ -3,7 +3,7 @@ import os
 
 
 RAW_FILE_PATH = os.path.normpath("server/data/raw/attacks.csv")
-PROCESSED_FILE_PATH = os.path.normpath("server/data/processed/processed_attacks.csv")
+PROCESSED_FILE_PATH = os.path.normpath("server/data/processed/attacks.csv")
 
 
 def get_data_path(file_path: str) -> str:
@@ -34,7 +34,7 @@ def get_data_frame(file_path: str=os.path.normpath("server/data/raw/attacks.csv"
     Reads the shark attack data from a CSV file and returns it as a pandas DataFrame.
 
     Args:
-        file_path (str): The path to the CSV file containing the shark attacks data. Defaults to "server/data/processed/processed_attacks.csv".
+        file_path (str): The path to the CSV file containing the shark attacks data. Defaults to "server/data/processed/attacks.csv".
 
     Returns:
         pd.DataFrame: A pandas DataFrame containing the shark attacks data.

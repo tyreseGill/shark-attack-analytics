@@ -35,7 +35,7 @@ def generate_clean_csv():
     """
     Generates a cleaned CSV file from the raw data by applying the cleaning functions and saving the result to a specified path.
     """
-    PROCESSED_DATA_PATH = "server/data/processed/processed_attacks.csv"
+    PROCESSED_DATA_PATH = "server/data/processed/attacks.csv"
 
     clean_data_frame = clean_data()
     clean_data_frame.to_csv(PROCESSED_DATA_PATH)
