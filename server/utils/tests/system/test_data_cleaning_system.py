@@ -16,6 +16,9 @@ def test_data_cleaning_system():
     # Load generated CSV file
     df = pd.read_csv("server/data/processed/attacks.csv")
 
+    # Verify CSV file is not empty
+    assert not df.empty
+
     # Verify expected columns exist
     assert "Date" in df.columns
     assert "Type" in df.columns
