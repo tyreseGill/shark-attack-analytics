@@ -29,7 +29,7 @@ def get_data_path(file_path: str) -> str:
     return DATA_PATH
 
 
-def get_data_frame(file_path: str=os.path.normpath("server/data/processed/processed_attacks.csv")) -> pd.DataFrame:
+def get_data_frame(file_path: str=os.path.normpath("server/data/raw/attacks.csv")) -> pd.DataFrame:
     """
     Reads the shark attack data from a CSV file and returns it as a pandas DataFrame.
 
