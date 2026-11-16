@@ -1,34 +1,25 @@
 import pandas as pd
-from sqlalchemy import create_engine
-from dotenv import load_dotenv
-import os
+from server.utils.database_utilities import create_connection_engine
+from server.utils.data_frame_utilities import get_processed_data
 
 
-def load_data():
+def load_data(table_name: str = "shark_attacks"):
     """
     Loads the processed data to the database.
     """
     try:
-        load_dotenv()
-
-        DATABASE_CONNECTION_STR = os.getenv("DATABASE_CONNECTION_STRING")
-
-        data_frame = pd.read_csv(
-            "server/data/processed/attacks.csv"
-        )
-
-        engine = create_engine(
-            DATABASE_CONNECTION_STR
-        )
+        engine = create_connection_engine()
+        data_frame = get_processed_data()
 
         data_frame.to_sql(
-            "shark_attacks",  # table name
+            table_name,
             engine,
             if_exists="replace",
             index=False
         )
     finally:
         engine.dispose()
+
 
 if __name__ == "__main__":
     load_data()

@@ -1,12 +1,18 @@
 import pandas as pd
 import subprocess
 import sys
-import os
-from sqlalchemy import create_engine, inspect, text
+from server.utils.database_utilities import create_connection_engine, check_table_exists, generate_df_from_db_records
+from server.utils.data_frame_utilities import get_processed_data
 
 
-def remove_unnamed_column(expected_df, result_df):
-    result_df = result_df.sort_values(
+def remove_unnamed_column(expected_df: pd.DataFrame, actual_df: pd.DataFrame):
+    """
+    Removes unnamed column from dataframe.
+
+    Returns:
+        pd.DataFrame: Clean dataframe without unnamed column.
+    """
+    actual_df = actual_df.sort_values(
         by="Unnamed: 0"
     ).reset_index(drop=True)
 
@@ -14,48 +20,40 @@ def remove_unnamed_column(expected_df, result_df):
         by="Unnamed: 0"
     ).reset_index(drop=True)
 
-    return expected_df, result_df
+    return expected_df, actual_df
 
 
 def test_load_to_db():
-    DATABASE_CONNECTION_STR = os.getenv("DATABASE_CONNECTION_STRING")
-
+    # Executes load_to_db.py
     result = subprocess.run(
         [sys.executable, "-m", "server.pipelines.load_to_db"],
         capture_output=True,
         text=True
     )
 
+    TABLE_NAME = "shark_attacks"
+
+    # Verify output was returned without issue
     assert result.returncode == 0, result.stderr
 
-    # Connect to database
-    engine = create_engine(
-        DATABASE_CONNECTION_STR
-    )
+    engine = create_connection_engine()
 
     try:
         # Verify table exists
-        assert inspect(engine).has_table("shark_attacks")
+        assert check_table_exists(engine, TABLE_NAME)
 
-        expected_df = pd.read_csv(
-            "server/data/processed/attacks.csv"
-        )
-
-        # Verify database records
-        with engine.connect() as conn:
-            result_df = pd.read_sql(
-                text("SELECT * FROM shark_attacks"),
-                conn
-            )
+        # Fetches processed data from generated CSV and data loaded to database for comparison
+        expected_df = get_processed_data()
+        actual_df = generate_df_from_db_records(engine, TABLE_NAME)
         
         # Verify record count
-        assert len(result_df) == len(expected_df)
+        assert len(actual_df) == len(expected_df)
 
-        expected_df, result_df = remove_unnamed_column(expected_df, result_df)
+        expected_df, actual_df = remove_unnamed_column(expected_df, actual_df)
 
         # Verify inserted data
         pd.testing.assert_frame_equal(
-            result_df.reset_index(drop=True),
+            actual_df.reset_index(drop=True),
             expected_df.reset_index(drop=True),
             check_dtype=False
         )
