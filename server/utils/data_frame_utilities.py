@@ -1,9 +1,10 @@
 import pandas as pd
 import os
+from pathlib import Path
 
 
-RAW_FILE_PATH = os.path.normpath("server/data/raw/attacks.csv")
-PROCESSED_FILE_PATH = os.path.normpath("server/data/processed/attacks.csv")
+RAW_FILE_PATH = os.path.normpath("../server/data/raw/attacks.csv")
+PROCESSED_FILE_PATH = os.path.normpath("../server/data/processed/attacks.csv")
 
 
 def get_data_path(file_path: str) -> str:
@@ -17,19 +18,20 @@ def get_data_path(file_path: str) -> str:
         str: The path to the data file to be used (either processed or raw).
     """
 
-    try:
-        # Use the processed file if it exists and the user did not explicitly request the raw file
-        if os.path.exists(PROCESSED_FILE_PATH) and file_path != PROCESSED_FILE_PATH:
-            DATA_PATH = PROCESSED_FILE_PATH
-        else:
-            DATA_PATH = file_path
-    except FileNotFoundError:
-        raise FileNotFoundError("Please download the file \"attacks.csv\" from Kaggle and paste it under the folder \"server/data/raw/\".")
+    # Use the processed file if it exists and the user did not explicitly request the raw file
+    if os.path.exists(PROCESSED_FILE_PATH) and PROCESSED_FILE_PATH in file_path:
+        DATA_PATH = PROCESSED_FILE_PATH
+    elif os.path.exists(RAW_FILE_PATH) and RAW_FILE_PATH in file_path:
+        DATA_PATH = RAW_FILE_PATH
+    else:
+        raise FileNotFoundError(
+            f"Please download the file \"attacks.csv\" from Kaggle and paste it under the folder \"{os.path.normpath("server/data/raw/")}\"."
+        )
 
     return DATA_PATH
 
 
-def get_data_frame(file_path: str=os.path.normpath("server/data/raw/attacks.csv")) -> pd.DataFrame:
+def get_data_frame(file_path: str="server/data/raw/attacks.csv") -> pd.DataFrame:
     """
     Reads the shark attack data from a CSV file and returns it as a pandas DataFrame.
 
@@ -39,9 +41,11 @@ def get_data_frame(file_path: str=os.path.normpath("server/data/raw/attacks.csv"
     Returns:
         pd.DataFrame: A data frame containing the shark attacks data.
     """
-
-    DATA_PATH = get_data_path(file_path)
-    is_raw_file = "/raw/" in DATA_PATH
+    DATA_PATH = get_data_path(
+        os.path.normpath(file_path)  # Normalizes file path to avoid parsing errors
+    )
+    
+    is_raw_file = RAW_FILE_PATH in DATA_PATH
 
     expected_columns = [
         "Date",
