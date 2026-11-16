@@ -37,7 +37,7 @@ def get_data_frame(file_path: str=os.path.normpath("server/data/raw/attacks.csv"
         file_path (str): The path to the CSV file containing the shark attacks data. Defaults to "server/data/processed/attacks.csv".
 
     Returns:
-        pd.DataFrame: A pandas DataFrame containing the shark attacks data.
+        pd.DataFrame: A data frame containing the shark attacks data.
     """
 
     DATA_PATH = get_data_path(file_path)
@@ -72,5 +72,31 @@ def get_data_frame(file_path: str=os.path.normpath("server/data/raw/attacks.csv"
             }
         )
 
+    return data_frame
+
+
+def get_raw_data() -> pd.DataFrame:
+    """
+    Generates a data frame based on unprocessed data from CSV file.
+
+    Returns:
+        pd.DataFrame: A data frame containing unprocessed shark attack records.
+    """
+    data_frame = pd.read_csv(
+        os.path.normpath("server/data/raw/attacks.csv")
+    )
+    return data_frame
+
+
+def get_processed_data() -> pd.DataFrame:
+    """
+    Generates a data frame based on processed data from CSV file.
+
+    Returns:
+        pd.DataFrame: A data frame containing processed shark attack records.
+    """
+    data_frame = pd.read_csv(
+        os.path.normpath("server/data/processed/attacks.csv")
+    )
     return data_frame
     
