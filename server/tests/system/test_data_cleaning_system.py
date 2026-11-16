@@ -1,5 +1,6 @@
 import pandas as pd
 import subprocess
+from server.utils.data_frame_utilities import get_processed_data
 
 
 def test_data_cleaning_system():
@@ -14,20 +15,20 @@ def test_data_cleaning_system():
     assert result.returncode == 0
 
     # Load generated CSV file
-    df = pd.read_csv("server/data/processed/attacks.csv")
+    data_frame = get_processed_data()
 
     # Verify CSV file is not empty
-    assert not df.empty
+    assert not data_frame.empty
 
     # Verify expected columns exist
-    assert "Date" in df.columns
-    assert "Type" in df.columns
-    assert "Country" in df.columns
-    assert "Area" in df.columns
-    assert "Location" in df.columns
-    assert "Activity" in df.columns
-    assert "Gender" in df.columns
-    assert "Age" in df.columns
-    assert "Fatal" in df.columns
-    assert "Time" in df.columns
-    assert "Species" in df.columns
+    assert "Date" in data_frame.columns
+    assert "Type" in data_frame.columns
+    assert "Country" in data_frame.columns
+    assert "Area" in data_frame.columns
+    assert "Location" in data_frame.columns
+    assert "Activity" in data_frame.columns
+    assert "Gender" in data_frame.columns
+    assert "Age" in data_frame.columns
+    assert "Fatal" in data_frame.columns
+    assert "Time" in data_frame.columns
+    assert "Species" in data_frame.columns

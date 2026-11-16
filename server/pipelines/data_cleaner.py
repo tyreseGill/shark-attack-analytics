@@ -1,4 +1,4 @@
-from server.utils.data_frame_utilities import get_data_frame
+from server.utils.data_frame_utilities import get_raw_data
 from server.preprocessing.type_cleaner import categorize_type
 from server.preprocessing.country_cleaner import categorize_country
 from server.preprocessing.activity_cleaner import categorize_activity
@@ -17,7 +17,7 @@ def clean_data() -> pd.DataFrame:
     Returns:
         pd.DataFrame: A cleaned DataFrame with categorized columns.
     """
-    data_frame = get_data_frame()
+    data_frame = get_raw_data()
 
     data_frame["Type"] = data_frame["Type"].apply(categorize_type)
     data_frame["Country"] = data_frame["Country"].apply(categorize_country)
@@ -35,7 +35,7 @@ def generate_clean_csv():
     """
     Generates a cleaned CSV file from the raw data by applying the cleaning functions and saving the result to a specified path.
     """
-    PROCESSED_DATA_PATH = "server/data/processed/attacks.csv"
+    PROCESSED_DATA_PATH = os.path.normpath("server/data/processed/attacks.csv")
 
     clean_data_frame = clean_data()
     clean_data_frame.to_csv(PROCESSED_DATA_PATH)
