@@ -24,14 +24,14 @@ def remove_unnamed_column(expected_df: pd.DataFrame, actual_df: pd.DataFrame):
 
 
 def test_load_to_db():
+    TABLE_NAME = "test_shark_attacks"
+
     # Executes load_to_db.py
     result = subprocess.run(
-        [sys.executable, "-m", "server.pipelines.load_to_db"],
+        [sys.executable, "-m", "server.pipelines.load_to_db", "--table", TABLE_NAME],
         capture_output=True,
         text=True
     )
-
-    TABLE_NAME = "shark_attacks"
 
     # Verify output was returned without issue
     assert result.returncode == 0, result.stderr
