@@ -1,4 +1,5 @@
 import pandas as pd
+import argparse
 from server.utils.database_utilities import create_connection_engine
 from server.utils.data_frame_utilities import get_processed_data
 
@@ -22,4 +23,13 @@ def load_data(table_name: str = "shark_attacks"):
 
 
 if __name__ == "__main__":
-    load_data()
+    parser = argparse.ArgumentParser()
+    parser.add_argument(
+        "--table",
+        default="shark_attacks",
+        type=str
+    )
+
+    args = parser.parse_args()
+    
+    load_data(args.table)
