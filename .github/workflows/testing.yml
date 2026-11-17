@@ -1,0 +1,48 @@
+name: Testing
+
+on:
+    push:
+        branches:
+            - main
+        paths:
+            - "requirements.txt"
+    pull_request:
+        branches:
+            - main
+        paths:
+            - "requirements.txt"
+
+jobs:
+    testing:
+        strategy:
+            matrix:
+                os: [ubuntu-latest, windows-latest, macos-latest]
+                python-version: ["3.11"]
+        runs-on: ${{ matrix.os }}
+
+        steps:
+            - name: Checkout the code
+              uses: actions/checkout@v4
+
+            - name: Setup python environment
+              uses: actions/setup-python@v5
+              with:
+                python-version: ${{matrix.python-version}}
+                cache: pip
+
+            - name: Install application dependencies
+              run: pip install -r server/requirements.txt
+
+            # NOTE: Uncomment when Postgresql instance is available on OS system
+            # - name: Run integration tests
+            #   run: python -m pytest server/tests/integration/
+
+            - name: Run system tests
+              run: python -m pytest server/tests/system/
+
+            - name: Run unit tests
+              run: python -m pytest server/tests/unit/
+
+            - name: Test jupyter notebooks
+              run: python -m pytest --nbmake docs/
+        
