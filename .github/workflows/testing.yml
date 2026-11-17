@@ -25,14 +25,17 @@ jobs:
               with:
                 python-version: ${{matrix.python-version}}
                 cache: pip
-
-            - name: Download Shark Attack Dataset
-              run: |
-                python -m pip install kaggle
-                kaggle datasets download felipeesc/shark-attack-dataset --path server/data/raw --unzip
+                cache-dependency-path: server/requirements.txt
 
             - name: Install application dependencies
               run: pip install -r server/requirements.txt
+
+            - name: Install kaggle dependencies
+              run: python -m pip install kaggle six
+
+            - name: Download Shark Attack Dataset
+              run: |
+                python -m kaggle datasets download felipeesc/shark-attack-dataset --path server/data/raw --unzip
 
             # NOTE: Uncomment when Postgresql instance is available on OS system
             # - name: Run integration tests
