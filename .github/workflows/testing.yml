@@ -30,6 +30,11 @@ jobs:
                 python-version: ${{matrix.python-version}}
                 cache: pip
 
+            - name: Download Shark Attack Dataset
+              run: |
+                python -m pip install kaggle
+                kaggle datasets download felipeesc/shark-attack-dataset --path server/data/raw --unzip
+
             - name: Install application dependencies
               run: pip install -r server/requirements.txt
 
